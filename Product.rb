@@ -15,7 +15,7 @@ class Product
     return @name
   end
 
-  def total_price
+  def total_price ##tax per item
     return base_price * (1+@@tax_rate)
   end
 

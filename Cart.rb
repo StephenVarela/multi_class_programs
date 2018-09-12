@@ -6,8 +6,8 @@ class Cart
     @shopping_cart=[]
   end
 
-  def add_item(item)
-    @shopping_cart << item
+  def add_item(name, price)
+    @shopping_cart << Product.new(name,price)
   end
 
   def delete_item(item)
@@ -22,7 +22,7 @@ class Cart
     return cost
   end
 
-  def cost_after_tax
+  def cost_after_tax 
     cost = 0
     @shopping_cart.each do |item|
       cost += item.total_price
@@ -33,7 +33,10 @@ class Cart
 end
 
 my_cart = Cart.new
-my_product = Product.new('Guitar', 200)
-my_cart.add_item(my_product)
-p my_cart.cost_after_tax
-p my_cart.cost_before_tax
+my_cart.add_item('Guitar1', 200)
+my_cart.add_item('Guitar2', 200)
+my_cart.add_item('Guitar3', 200)
+my_cart.add_item('Guitar4', 200)
+
+p before_tax = my_cart.cost_before_tax
+p after_tax = my_cart.cost_after_tax
